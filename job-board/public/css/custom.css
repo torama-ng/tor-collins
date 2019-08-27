@@ -1,0 +1,16 @@
+
+    .header{
+        padding-top: 2em;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 1000;
+        font-size: 50px;
+    }
+    .nav-link{
+        color: black;
+    }
+    .down{
+      margin-top: 6em;
+    }
+    .second{
+        background-color: #F5F5F5;
+      }
