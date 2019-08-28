@@ -86,6 +86,16 @@ class JobsController extends Controller
         return redirect('/jobs')->with('success', 'Job Added Successfully');
     }
 
+    public function search(Request $request){
+        $searchName = $request->get('searchName');
+        $searchLocation = $request->get('searchLocation');
+        $jobs = Job::where('jobTitle', 'like', '%'.$searchName.'%')
+                    ->where('state', 'like', '%'.$searchLocation.'%')
+                    ->paginate(5);
+
+        return view('pages.result', ['jobs' => $jobs]);            
+    }
+    
     /**
      * Display the specified resource.
      *
@@ -95,16 +105,7 @@ class JobsController extends Controller
     public function show($id)
     {
         $job =  Job::find($id);
-        return view('pages.show')->with('job', $job);
-    }
-    public function search(Request $request){
-        $searchName = $request->get('searchName');
-        $searchLocation = $request->get('searchLocation');
-        $jobs = Job::where('jobTitle', 'like', '%'.$searchName.'%')
-                    ->where('state', 'like', '%'.$searchLocation.'%')
-                    ->paginate(5);
-
-        return view('pages.result', ['jobs' => $jobs]);            
+        return view('pages.result')->with('job', $job);
     }
 
     /**
