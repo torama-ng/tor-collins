@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -70,5 +70,31 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
+<div class="Loader"></div>
+<div class="wrapper">  
+    
+    <!-- Title Header Start -->
+    <section class="login-screen-sec">
+        <div class="container">
+            <div class="login-screen">
+                <a href="/"><img src="storage/logo.png" class="img-responsive" alt=""></a>
+                <form  method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <input type="text" class="form-control" placeholder="Useraname">
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                    <input type="password" class="form-control" placeholder="Password">
+                    <button class="btn btn-login" type="submit">Login</button>
+                    <span>You Have No Account? <a href="/register"> Create An Account</a></span>
+                    @if (Route::has('password.request'))
+                    <span><a href="{{route('password.request')}}"> Forget Password</a></span>
+                    @endif
+                </form>
+            </div>
+        </div>
+    </section>
 @endsection

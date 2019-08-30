@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+{{-- <div class="container">
+    <div class="row justify-content-center signup-screen">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
@@ -73,5 +73,26 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
+
+<div class="Loader"></div>
+<div class="wrapper">  
+    
+    <!-- Title Header Start -->
+    <section class="signup-screen-sec">
+        <div class="container">
+            <div class="signup-screen">
+                <a href="/"><img src="storage/logo.png" class="img-responsive" alt=""></a>
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+                    <input type="text" class="form-control" placeholder="Your Name">
+                    <input type="email" class="form-control" placeholder="Your Email">
+                    <input type="text" class="form-control" placeholder="Useraname">
+                    <input type="password" class="form-control" placeholder="Password">
+                    <button class="btn btn-login" type="submit" >Sign Up</button>
+                    <span>Have You Account? <a href="/login"> Login</a></span>	
+                </form>
+            </div>
+        </div>
+    </section>
 @endsection
