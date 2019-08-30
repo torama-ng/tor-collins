@@ -81,13 +81,18 @@
                 <a href="/"><img src="storage/logo.png" class="img-responsive" alt=""></a>
                 <form  method="POST" action="{{ route('login') }}">
                     @csrf
-                    <input type="text" class="form-control" placeholder="Useraname">
+                    <input id="email" type="email" placeholder="Email Address" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                     @error('email')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" placeholder="Password"  class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                    @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                     <button class="btn btn-login" type="submit">Login</button>
                     <span>You Have No Account? <a href="/register"> Create An Account</a></span>
                     @if (Route::has('password.request'))
