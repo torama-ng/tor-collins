@@ -260,11 +260,11 @@
                     <div role="tabpanel" class="tab-pane fade in active" id="login">
                       <img src="storage/logo.png" class="img-responsive" alt="" />
                       <div class="subscribe wow fadeInUp">
-                        <form class="form-inline" method="post">
+                        <form class="form-inline" method="POST" action="{{ route('login') }}">
                           <div class="col-sm-12">
                             <div class="form-group">
                               <input type="email"  name="email" class="form-control" placeholder="Username" required>
-                              <input type="password" name="password" class="form-control"  placeholder="Confirm" required>
+                              <input type="password" name="password" class="form-control"  placeholder="Login" required>
                               <div class="center">
                               <button type="submit" id="login-btn" class="submit-btn"> Login </button>
                               </div>
@@ -276,7 +276,7 @@
     
                     <div role="tabpanel" class="tab-pane fade" id="register">
                     <img src="storage/logo.png" class="img-responsive" alt="" />
-                      <form class="form-inline" method="post">
+                      <form class="form-inline" method="POST" action="{{ route('register') }}">
                           <div class="col-sm-12">
                             <div class="form-group">
                               <input type="text"  name="email" class="form-control" placeholder="Your Name" required="">
