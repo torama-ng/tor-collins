@@ -16,8 +16,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', 'PagesController@about');
-// Route::get('/jobs', 'PagesController@jobs');
+Route::get('/faq', 'PagesController@faq');
+Route::get('/pricing', 'PagesController@pricing');
+Route::get('/blog', 'PagesController@blog');
 Route::get('/services', 'PagesController@services');
 Route::get('/company', 'PagesController@company');
 Route::get('/search', 'JobsController@search');

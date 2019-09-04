@@ -1,6 +1,6 @@
 
 <!-- Start Navigation -->
-<nav class="navbar navbar-default navbar-fixed navbar-transparent white bootsnav">
+<nav class="navbar navbar-expand-md navbar-fixed navbar-primary white bootsnav">
 
   <div class="container">            
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
@@ -8,7 +8,7 @@
     </button>
     <!-- Start Header Navigation -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="/">
         <img src="storage/logo.png" class="logo logo-display" alt="">
         <img src="storage/logo-white.png" class="logo logo-scrolled" alt="">
       </a>
@@ -17,8 +17,34 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbar-menu">
       <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-        <li><a href="/login"><i class="fa fa-pencil" aria-hidden="true"></i>SignUp</a></li>
-        <li><a href="pricing.html"><i class="fa fa-sign-in" aria-hidden="true"></i>Pricing</a></li>
+        {{-- <li><a href="/login"><i class="fa fa-pencil" aria-hidden="true"></i>Sign Up</a></li> --}}
+        @guest
+        @if (Route::has('register'))
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('register') }}"><i class="fa fa-pencil" aria-hidden="true"></i>Sign Up</a>
+        </li>
+        @endif
+        @else
+    <li class="nav-item dropdown">
+        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            {{ Auth::user()->name }} <span class="caret"></span>
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/dashboard">Dashboard</a>
+            <a class="dropdown-item" href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        </div>
+    </li>
+      @endguest
+        <li><a href="/pricing"><i class="fa fa-sign-in" aria-hidden="true"></i>Pricing</a></li>
         <li class="left-br"><a href="javascript:void(0)"  data-toggle="modal" data-target="#signup" class="signin">Sign In Now</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
@@ -95,7 +121,7 @@
             </li>
           </ul>
         </li>
-        <li><a href="blog.html">Blog</a></li>
+        <li><a href="/blog">Blog</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div>   

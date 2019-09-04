@@ -6,9 +6,16 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function about() {
-        $title = 'About Us';
-        return view('pages.about')->with('title', $title);
+    public function faq() {
+        return view('pages.faq');
+    }
+
+    public function pricing(){
+        return view('pages.pricing');
+    }
+
+    public function blog(){
+        return view('pages.blog');
     }
 
     public function services() {
