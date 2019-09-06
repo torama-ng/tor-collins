@@ -10,8 +10,6 @@
             </div>
             <div class="card-body">
               <h3 class="card-title">{{$job->jobTitle}}</h3>
-              <h4 class="card-title">{{$job->ministry}}</h4>
-              <p class="card-text">{{$job->jobDescription}}</p>
               <a href="/jobs/{{$job->id}}" class="btn btn-primary">Details</a>
             </div>
             <div class="card-footer text-muted">

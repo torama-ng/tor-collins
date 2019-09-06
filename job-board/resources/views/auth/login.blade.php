@@ -79,7 +79,7 @@
         <div class="container">
             <div class="login-screen">
                 <a href="/"><img src="storage/logo.png" class="img-responsive" alt=""></a>
-                <form  method="POST" action="{{ route('login') }}">
+                <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <input id="email" type="email" placeholder="Email Address" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                     @error('email')

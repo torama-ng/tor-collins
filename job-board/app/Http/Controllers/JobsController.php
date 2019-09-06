@@ -39,48 +39,64 @@ class JobsController extends Controller
     {
         $this->validate($request, [
             'jobTitle' => 'required',
-            'companyName' => 'required',
-            'state' => 'required',
-            'ministry' => 'required',
-            'schedule' => 'required',
-            'jobFunction' => 'required',
+            'emailAddress' => 'required',
+            'jobType' => 'required',
+            'location' => 'required',
             'jobDescription' => 'required',
-            // 'cvUpload' => 'file|required|max:1999',
+            'companyName' => 'required',
+            'companyTagline' => 'required',
+            'companyEmail' => 'required',
+            'companyLocation' => 'required',
+            'website' => 'required',
+            'companyDob' => 'required',
+            'facebookLink' => 'required',
+            'googleLink' => 'required',
+            'twitterLink' => 'required',
+            'instagramLink' => 'required',
+            'linkedinLink' => 'required',
+            'dribbleLink' => 'required',
+            'aboutCompany' => 'required',
+            'coverImage' => 'file|required|max:1999',
         ]);
 
-               // Handle File Upload
-               //$uniqueFileName = uniqid() . $request->get('cvUpload')->getClientOriginalName() . '.' . $request->get('cvupload')->getClientOriginalExtension();
-
-                //$request->get('cvUpload')->move(public_path('files') . $uniqueFileName);
-
-                //return redirect()->back()->with('success', 'File uploaded successfully.');
-
-                
-            //    if($request->hasFile('cvUpload')){
-            //     // Get filename with the extension
-            //     $filenameWithExt = $request->file('cvUpload')->getClientOriginalName();
-            //     // Get just filename
-            //     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            //     // Get just extension
-            //     $extension = $request->file('cvUpload')->getClientOriginalExtension();
-            //     // Filename to store
-            //     $fileNameToStore = $filename.'_'.time().'.'.$extension;
-            //     // Upload the File
-            //     $path = $request->file('cvUpload')->storeAs('public/cvUpload', $fileNameToStore);
-            // }else{
-            //     $fileNameToStore = 'noimage.jpg';
-            //    };
+            //    Handle File Upload               
+               if($request->hasFile('coverImage')){
+                // Get filename with the extension
+                $filenameWithExt = $request->file('coverImage')->getClientOriginalName();
+                // Get just filename
+                 $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                // Get just extension
+                $extension = $request->file('coverImage')->getClientOriginalExtension();
+                // Filename to store
+                $fileNameToStore = $filename.'_'.time().'.'.$extension;
+                // Upload the File
+                $path = $request->file('coverImage')->storeAs('public/coverImage', $fileNameToStore);
+            }else{
+                $fileNameToStore = 'noimage.jpg';
+               };
 
         // Add Job
         $job = new Job;
         $job->jobTitle = $request->input('jobTitle');
-        $job->companyName = $request->input('companyName');
-        $job->state = $request->input('state');
-        $job->schedule = $request->input('schedule');
-        $job->ministry = $request->input('ministry');
-        $job->jobFunction = $request->input('jobFunction');
+        $job->emailAddress = $request->input('emailAddress');
+        $job->jobType = $request->input('jobType');
+        $job->location = $request->input('location');
         $job->jobDescription = $request->input('jobDescription');
-        // $job->cvUpload = $fileNameToStore;
+        $job->coverImage = $request->input('coverImage');
+        $job->companyName = $request->input('companyName');
+        $job->companyTagline = $request->input('companyTagline');
+        $job->companyEmail = $request->input('companyEmail');
+        $job->companyLocation = $request->input('companyLocation');
+        $job->website = $request->input('website');
+        $job->companyDob = $request->input('companyDob');
+        $job->facebookLink = $request->input('facebookLink');
+        $job->googleLink = $request->input('googleLink');
+        $job->twitterLink = $request->input('twitterLink');
+        $job->instagramLink = $request->input('instagramLink');
+        $job->linkedinLink = $request->input('linkedinLink');
+        $job->dribbleLink = $request->input('dribbleLink');
+        $job->aboutCompany = $request->input('aboutCompany');
+        $job->coverImage = $fileNameToStore;
         $job->save();
 
         return redirect('/jobs')->with('success', 'Job Added Successfully');
