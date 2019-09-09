@@ -121,7 +121,7 @@ class JobsController extends Controller
     public function show($id)
     {
         $job =  Job::find($id);
-        return view('pages.result')->with('job', $job);
+        return view('pages.show')->with('job', $job);
     }
 
     /**

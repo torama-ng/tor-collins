@@ -22,8 +22,14 @@ Route::get('/blog', 'PagesController@blog');
 Route::get('/services', 'PagesController@services');
 Route::get('/company', 'PagesController@company');
 Route::get('/search', 'JobsController@search');
+Route::get('/admin', function(){
+    return view('admin.dashboard');
+})->middleware(['auth', 'auth.admin']);
 Auth::routes(['verify' => true]);
 Route::resource('jobs', 'JobsController');
+Route::namespace('Admin')->prefix('admin')->middleware(['auth', 'auth.admin'])->name('admin.')->group(function(){
+    Route::resource('/users', 'UserController', ['except' => ['show', 'create', 'store']]);
+});
 
 Route::get('profile', function () {
     // Only verified users may enter...

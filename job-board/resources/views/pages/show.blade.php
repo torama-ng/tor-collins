@@ -9,12 +9,7 @@
     </div>
     <div class="card-body">
     <h4 class="card-title"><strong>{{$job->jobTitle}}</strong></h4>
-    <h5 class="card-text"><strong>{{$job->companyName}}</strong></h5>
-    <h6 class="card-text">{{$job->state}}</h6>
-    <h6 class="card-text">{{$job->ministry}}</h6>
-    <h6 class="card-text">{{$job->schedule}}</h6>
-    <h6 class="card-text">{{$job->jobFunction}}</h6>
-    <p class="card-text">{{$job->jobDescription}}</p>
+    
     <a href="#"><p class="btn btn-primary btn-success btn-lg">Apply Now</p></a>
     </div>
     <div class="card-footer text-muted">
