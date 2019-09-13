@@ -104,6 +104,15 @@
                         </span>
                     @enderror
                     <input id="password-confirm" type="password" placeholder="Confirm Password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                    <select name="user_type" id="user_type" class="form-control @error('user_type') is-invalid @enderror" value="{{ old('user_type') }}" required autocomplete="user_type">
+                        <option value="employer">Employer</option>
+                        <option value="candidate">Candidate</option>
+                    </select>
+                    @error('user_type')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                     <button class="btn btn-login" type="submit">Sign Up</button>
                     <span>Have You Account? <a href="/login"> Login</a></span>	
                 </form>

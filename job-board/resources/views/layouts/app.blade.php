@@ -27,7 +27,7 @@
     </head>
     <body>
         <div id="app">
-                {{-- @include('inc.navbar') --}}
+                @include('inc.navbar')
                 @include('inc.messages')
                     @yield('content') 
                 @include('inc.footer')
@@ -35,21 +35,21 @@
 
 			<!-- Scripts
 			================================================== -->
-			<script src="{{ asset('js/plugins/jquery.min.js')}}"></script>
-			<script src="{{ asset('js/plugins/viewportchecker.js')}}"></script>
-			<script src="{{ asset('js/plugins/bootstrap.min.js')}}"></script>
-			<script src="{{ asset('js/plugins/bootsnav.js')}}"></script>
-			<script src="{{ asset('js/plugins/select2.min.js')}}"></script>
-			<script src="{{ asset('js/plugins/wysihtml5-0.3.0.js')}}"></script>
-			<script src="{{ asset('js/plugins/bootstrap-wysihtml5.js')}}"></script>
-			<script src="{{ asset('js/plugins/datedropper.min.js')}}"></script>
-			<script src="{{ asset('js/plugins/dropzone.js')}}"></script>
-			<script src="{{ asset('js/plugins/loader.js')}}"></script>
-			<script src="{{ asset('js/plugins/owl.carousel.min.js')}}"></script>
-			<script src="{{ asset('js/plugins/slick.min.js')}}"></script>
-			<script src="{{ asset('js/plugins/gmap3.min.js')}}"></script>
-			<script src="{{ asset('js/plugins/jquery.easy-autocomplete.min.js')}}"></script>
+			<script type="application/javascript" src="{{ asset('js/plugins/jquery.min.js')}}"></script>
+			<script type="application/javascript" src="{{ asset('js/plugins/viewportchecker.js')}}"></script>
+			<script type="application/javascript" src="{{ asset('js/plugins/bootstrap.min.js')}}"></script>
+			<script type="application/javascript" src="{{ asset('js/plugins/bootsnav.js')}}"></script>
+			<script type="application/javascript" src="{{ asset('js/plugins/select2.min.js')}}"></script>
+			<script type="application/javascript" src="{{ asset('js/plugins/wysihtml5-0.3.0.js')}}"></script>
+			<script type="application/javascript" src="{{ asset('js/plugins/bootstrap-wysihtml5.js')}}"></script>
+			<script type="application/javascript" src="{{ asset('js/plugins/datedropper.min.js')}}"></script>
+			<script type="application/javascript" src="{{ asset('js/plugins/dropzone.js')}}"></script>
+			<script type="application/javascript" src="{{ asset('js/plugins/loader.js')}}"></script>
+			<script type="application/javascript" src="{{ asset('js/plugins/owl.carousel.min.js')}}"></script>
+			<script type="application/javascript" src="{{ asset('js/plugins/slick.min.js')}}"></script>
+			<script type="application/javascript" src="{{ asset('js/plugins/gmap3.min.js')}}"></script>
+			<script type="application/javascript" src="{{ asset('js/plugins/jquery.easy-autocomplete.min.js')}}"></script>
 			<!-- Custom Js -->
-			<script src="{{ asset('js/custom.js')}}"></script>
+			<script type="application/javascript" src="{{ asset('js/custom.js')}}"></script>
     </body>
 </html>

@@ -1,5 +1,6 @@
 
 <!-- Start Navigation -->
+<div class="wrapper">
 <nav class="navbar navbar-expand-md navbar-fixed navbar-primary white bootsnav">
 
   <div class="container">            
@@ -65,41 +66,47 @@
                     </ul>
                   </div>
                 </div><!-- end col-3 -->
-                <div class="col-menu col-md-3">
-                  <h6 class="title">For Candidate</h6>
-                  <div class="content">
-                    <ul class="menu-col">
-                      <li><a href="browse-jobs.html">Browse Jobs</a></li>
-                      <li><a href="browse-company.html">Browse Companies</a></li>
-                      <li><a href="browse-jobs-grid.html">Job In Grid</a></li>
-                      <li><a href="create-resume.html">Create Resume</a></li>
-                      <li><a href="company-detail.html">Company Detail</a></li>
-                      <li><a href="search-new.html">New Search Job</a></li>
-                      <li><a href="advance-search.html">Advance Search Job</a></li>
-                      <li><a href="advance-search-2.html">Advance Search Job 2</a></li>
-                      <li><a href="job-detail.html">Job Detail</a></li>
-                      <li><a href="new-job-detail.html">New Job Detail</a></li>
-                                                  
-                    </ul>
-                  </div>
-                </div><!-- end col-3 -->
-                <div class="col-menu col-md-3">
-                  <h6 class="title">For Employer</h6>
-                  <div class="content">
-                    <ul class="menu-col">
-                      <li><a href="/jobs/create">Create Job</a></li>
-                      <li><a href="create-company.html">Create Company</a></li>
-                      <li><a href="manage-company.html">Manage Company</a></li>
-                      <li><a href="manage-candidate.html">Browse Candidate</a></li>
-                      <li><a href="manage-employee.html">Manage Employee</a></li>
-                      <li><a href="browse-resume.html">Browse Resume</a></li>
-                      <li><a href="candidate-profile.html">Candidate Profile</a></li>
-                      <li><a href="candidate-detail.html">New Candidate Detail</a></li>
-                      <li><a href="employer-profile.html">Employer Profile</a></li>
-                      <li><a href="manage-resume.html">Manage Resume</a></li>
-                    </ul>
-                  </div>
-                </div>    
+                @if (Auth::check())
+                  @if (Auth::user()->user_type === 'candidate')
+                        <div class="col-menu col-md-3">
+                          <h6 class="title">For Candidate</h6>
+                          <div class="content">
+                            <ul class="menu-col">
+                              <li><a href="browse-jobs.html">Browse Jobs</a></li>
+                              <li><a href="browse-company.html">Browse Companies</a></li>
+                              <li><a href="/resume">Add Resume</a></li>                             
+                            </ul>
+                          </div>
+                        </div>
+                  @endif
+
+                    
+                  <!-- end col-3 -->
+                    @if (Auth::user()->user_type === 'employer')
+                      <div class="col-menu col-md-3">
+                        <h6 class="title">For Employer</h6>
+                        <div class="content">
+                          <ul class="menu-col">
+                            <li><a href="/jobs/create">Create Job</a></li>
+                            <li><a href="create-company.html">Create Company</a></li>
+                            <li><a href="manage-company.html">Manage Company</a></li>
+                            <li><a href="manage-candidate.html">Browse Candidate</a></li>
+                            <li><a href="manage-employee.html">Manage Employee</a></li>
+                            <li><a href="browse-resume.html">Browse Resume</a></li>
+                            <li><a href="candidate-profile.html">Candidate Profile</a></li>
+                            <li><a href="candidate-detail.html">New Candidate Detail</a></li>
+                            <li><a href="employer-profile.html">Employer Profile</a></li>
+                            <li><a href="manage-resume.html">Manage Resume</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    @endif
+
+                @endif
+                   
+                
+                
+    
                 <div class="col-menu col-md-3">
                   <h6 class="title">Extra Pages <span class="new-offer">New</span></h6>
                   <div class="content">
@@ -128,3 +135,4 @@
 </nav>
 <!-- End Navigation -->
 <div class="clearfix"></div>
+</div>
