@@ -10,7 +10,11 @@
 			<!-- Header Title End -->
 			
 			<!-- General Detail Start -->
-			<div class="section detail-desc">
+		<div class="section detail-desc">
+            <form method="POST" action="{{action('ResumesController@store')}}" enctype="multipart/form-data" name="data">
+                        <input name="_method" type="hidden" value="POST">
+                  
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="container">
 					<div class="ur-detail-wrap create-kit padd-bot-0">
 					
@@ -305,7 +309,8 @@
 							</div>
 						</form>
 					</div>					
-				</div>
+                </div>
+            </form>
 			</section>
 			<!-- full detail SetionStart-->
 @endsection

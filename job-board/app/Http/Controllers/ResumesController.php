@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Resume;
 
 class ResumesController extends Controller
 {
@@ -34,7 +35,32 @@ class ResumesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'ResumeTitle' => 'required',
+        ]);
+
+            //    Handle File Upload               
+               if($request->hasFile('coverImage')){
+                // Get filename with the extension
+                $filenameWithExt = $request->file('coverImage')->getClientOriginalName();
+                // Get just filename
+                 $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                // Get just extension
+                $extension = $request->file('coverImage')->getClientOriginalExtension();
+                // Filename to store
+                $fileNameToStore = $filename.'_'.time().'.'.$extension;
+                // Upload the File
+                $path = $request->file('coverImage')->storeAs('public/coverImage', $fileNameToStore);
+            }else{
+                $fileNameToStore = 'noimage.jpg';
+               };
+
+        // Add Resume
+        $resume = new Resume;
+
+        $resume->save();
+
+        return redirect('/resumes')->with('success', 'Resume Added Successfully');
     }
 
     /**
