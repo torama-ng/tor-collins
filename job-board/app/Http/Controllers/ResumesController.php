@@ -24,7 +24,7 @@ class ResumesController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.resume');
     }
 
     /**
@@ -36,31 +36,85 @@ class ResumesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'ResumeTitle' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'professionalTitle' => 'required',
+            'category' => 'required',
+            'aboutNote' => 'required',
+            'picture' => 'file|required|max:4999',
+            'phone' =>'required',
+            'location' => 'required',
+            'dob' => 'required',
+            'region' => 'required',
+            'fbLink' => 'required',
+            'gLink' => 'required',
+            'twLink' => 'required',
+            'igLink' => 'required',
+            'lnLink' => 'required',
+            'resumeContent' => 'required',
+            'schoolName' => 'required',
+            'qualification' => 'required',
+            'dateFrom' => 'required',
+            'dateTo' => 'required',
+            'notes' => 'required',
+            'employer' => 'required',
+            'position' => 'required',
+            'dateFromEx' => 'required',
+            'dateToEx' => 'required',
+            'notesSecond' => 'required',
+            'skill' => 'required',
+            'percent' => 'required',
         ]);
-
+        
             //    Handle File Upload               
-               if($request->hasFile('coverImage')){
+               if($request->hasFile('picture')){
                 // Get filename with the extension
-                $filenameWithExt = $request->file('coverImage')->getClientOriginalName();
+                $filenameWithExt = $request->file('picture')->getClientOriginalName();
                 // Get just filename
                  $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
                 // Get just extension
-                $extension = $request->file('coverImage')->getClientOriginalExtension();
+                $extension = $request->file('picture')->getClientOriginalExtension();
                 // Filename to store
                 $fileNameToStore = $filename.'_'.time().'.'.$extension;
                 // Upload the File
-                $path = $request->file('coverImage')->storeAs('public/coverImage', $fileNameToStore);
+                $path = $request->file('picture')->storeAs('public/picture', $fileNameToStore);
             }else{
                 $fileNameToStore = 'noimage.jpg';
                };
 
         // Add Resume
         $resume = new Resume;
-
+        $resume->name = $request->input('name');
+        $resume->email = $request->input('email');
+        $resume->professionalTitle = $request->input('professionalTitle');
+        $resume->category = $request->input('category');
+        $resume->aboutNote = $request->input('aboutNote');
+        $resume->picture = $fileNameToStore;
+        $resume->phone = $request->input('phone');
+        $resume->location = $request->input('location');
+        $resume->dob = $request->input('dob');
+        $resume->region = $request->input('region');
+        $resume->fbLink = $request->input('fbLink');
+        $resume->gLink = $request->input('gLink');
+        $resume->twLink = $request->input('twLink');
+        $resume->igLink = $request->input('igLink');
+        $resume->lnLink = $request->input('lnLink');
+        $resume->resumeContent = $request->input('resumeContent');
+        $resume->schoolName = $request->input('schoolName');
+        $resume->qualification = $request->input('qualification');
+        $resume->dateFrom = $request->input('dateFrom');
+        $resume->dateTo = $request->input('dateTo');
+        $resume->notes = $request->input('notes');
+        $resume->employer = $request->input('employer');
+        $resume->position = $request->input('position');
+        $resume->dateFromEx = $request->input('dateFromEx');
+        $resume->dateToEx = $request->input('dateToEx');
+        $resume->notesSecond = $request->input('notesSecond');
+        $resume->skill = $request->input('skill');
+        $resume->percent = $request->input('percent');
         $resume->save();
-
-        return redirect('/resumes')->with('success', 'Resume Added Successfully');
+         
+       return redirect('/')->with('success', 'Resume Added Successfully');
     }
 
     /**

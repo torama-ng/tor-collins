@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Resume extends Model
 {
         // Table Name 
-        protected $table = 'resumes';
+        protected $table = 'resume';
 
         // Primary Key
         public $primaryKey = 'id';

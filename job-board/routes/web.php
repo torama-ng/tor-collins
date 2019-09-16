@@ -25,11 +25,12 @@ Route::get('/search', 'JobsController@search');
 Route::get('/admin', function(){
     return view('admin.dashboard');
 })->middleware(['auth', 'auth.admin']);
-Route::get('/resume', function() {
-    return view('pages.resume');
-});
+// Route::get('/resume', function() {
+//     return view('pages.resume');
+// });
 Auth::routes(['verify' => true]);
 Route::resource('jobs', 'JobsController');
+Route::resource('resumes', 'ResumesController');
 Route::namespace('Admin')->prefix('admin')->middleware(['auth', 'auth.admin'])->name('admin.')->group(function(){
     Route::resource('/users', 'UserController', ['except' => ['show', 'create', 'store']]);
 });
