@@ -92,7 +92,7 @@
                             <li><a href="manage-company.html">Manage Company</a></li>
                             <li><a href="manage-candidate.html">Browse Candidate</a></li>
                             <li><a href="manage-employee.html">Manage Employee</a></li>
-                            <li><a href="browse-resume.html">Browse Resume</a></li>
+                            <li><a href="/browse-resume">Browse Resume</a></li>
                             <li><a href="candidate-profile.html">Candidate Profile</a></li>
                             <li><a href="candidate-detail.html">New Candidate Detail</a></li>
                             <li><a href="employer-profile.html">Employer Profile</a></li>

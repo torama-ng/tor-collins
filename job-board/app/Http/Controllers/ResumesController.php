@@ -14,7 +14,8 @@ class ResumesController extends Controller
      */
     public function index()
     {
-        //
+        $resumes = Resume::orderBy('created_at', 'desc')->paginate(5);
+        return view('pages.browse-resume')->with('resumes', $resumes);
     }
 
     /**
@@ -125,7 +126,8 @@ class ResumesController extends Controller
      */
     public function show($id)
     {
-        //
+        $resume =  Resume::find($id);
+        return view('pages.candidate-details')->with('resume', $resume);
     }
 
     /**
