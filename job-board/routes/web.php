@@ -20,13 +20,13 @@ Route::get('/faq', 'PagesController@faq');
 Route::get('/pricing', 'PagesController@pricing');
 Route::get('/blog', 'PagesController@blog');
 Route::get('/services', 'PagesController@services');
-Route::get('/company', 'PagesController@company');
+Route::get('/browse-companies', 'PagesController@companies');
 Route::get('/search', 'JobsController@search');
 Route::get('/admin', function(){
     return view('admin.dashboard');
 })->middleware(['auth', 'auth.admin']);
-Route::get('/browse-resume', function() {
-    return view('pages.browse-resume');
+Route::get('/browse-jobs', function() {
+    return view('pages.browse-jobs');
 });
 Auth::routes(['verify' => true]);
 Route::resource('jobs', 'JobsController');

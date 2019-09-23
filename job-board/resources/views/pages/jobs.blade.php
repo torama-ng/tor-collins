@@ -1,6 +1,4 @@
-@extends('layouts.app')
 
-@section('content')
     <h1>Jobs</h1>
     @if (count($jobs) > 0)
         @foreach ($jobs as $job)

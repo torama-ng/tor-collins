@@ -26,7 +26,7 @@ class PagesController extends Controller
         return view('pages.services')->with($data);
     }
 
-    public function company() {
-        return view('pages.company');
+    public function companies() {
+        return view('pages.browse-companies');
     }
 }

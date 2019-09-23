@@ -10,12 +10,12 @@
                             <div class="ur-detail-box">
                                 
                                 <div class="ur-thumb">
-                                    <img src="assets/img/can-2.png" class="img-responsive" alt="" />
+                                    <img src="/storage/picture/{{$resume->picture}}" class="img-responsive" alt="" />
                                 </div>
                                 <div class="ur-caption">
-                                    <h4 class="ur-title">Daniel Diwards</h4>
-                                    <p class="ur-location"><i class="ti-location-pin mrg-r-5"></i>232, New Sleewar, Canada</p>
-                                    <span class="ur-designation">Web Designer</span>
+                                    <h4 class="ur-title">{{$resume->name}}</h4>
+                                    <p class="ur-location"><i class="ti-location-pin mrg-r-5"></i>{{$resume->location}}</p>
+                                    <span class="ur-designation">{{$resume->category}}</span>
                                     <div class="rateing">
                                         <i class="fa fa-star filled"></i>
                                         <i class="fa fa-star filled"></i>
@@ -29,7 +29,7 @@
                             
                             <div class="ur-detail-btn">
                                 <a href="#" class="btn btn-warning mrg-bot-10 full-width"><i class="ti-thumb-up mrg-r-5"></i>Shortlist</a><br>
-                                <a href="#" class="btn btn-info full-width"><i class="ti-download mrg-r-5"></i>Download CV</a>
+                                {{-- <a href="#" class="btn btn-info full-width"><i class="ti-download mrg-r-5"></i>Download CV</a> --}}
                             </div>
                             
                         </div>
@@ -47,13 +47,13 @@
                                 
                                 <div class="row-bottom">
                                     <h2 class="detail-title">About Candidate</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                    <p>{{$resume->aboutNote}}</p>
+                                    
                                 </div>
                                 
                                 <div class="row-bottom">
                                     <h2 class="detail-title">Education</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <p>{{$resume->notes}}</p>
                                     <ul class="trim-edu-list">
                                     
                                         <li>

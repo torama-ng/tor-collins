@@ -17,7 +17,7 @@
         <section class="manage-company">
             <div class="container">
                 @if (count($resumes) > 0)
-                    @foreach ($resumes as $resume)    
+                @foreach ($resumes as $resume)    
                 <a href="resumes/{{$resume->id}}" class="item-click">
                             <article>
                                 <div class="brows-resume">
@@ -40,7 +40,7 @@
                                         </div>
                                         <div class="col-md-2 col-sm-2">
                                             <div class="browse-resume-rate">
-                                                {{-- <span><i class="fa fa-money"></i>$15/hour</span> --}}
+                                                <span><i class="fa fa-money"></i>$15/hour</span>
                                             </div>
                                         </div>
                                     </div>
@@ -53,7 +53,7 @@
                                             </div>
                                             <div class="col-md-3 col-sm-4">
                                                 <div class="browse-resume-exp">
-                                                    {{-- <span class="resume-exp">Exp. 3 Year</span> --}}
+                                                    <span class="resume-exp">Exp. 3 Year</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -62,8 +62,7 @@
                             </article>
                         </a>
                     @endforeach
-                @endif    
-    
+                @endif
             </div>
         </section>
     </div>

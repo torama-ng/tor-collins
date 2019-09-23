@@ -58,11 +58,8 @@
                   <div class="content">
                     <ul class="menu-col">
                       <li><a href="/">Home Page</a></li>
-                      <li><a href="freelancing.html">Freelancing</a></li>
+                      <li><a href="/login">Login</a></li>
                       <li><a href="/register">Sign Up</a></li>
-                      <li><a href="search-job.html">Search Job</a></li>
-                      <li><a href="accordion.html">Accordion</a></li>
-                      <li><a href="tab.html">Tab Style</a></li>
                     </ul>
                   </div>
                 </div><!-- end col-3 -->
@@ -72,9 +69,9 @@
                           <h6 class="title">For Candidate</h6>
                           <div class="content">
                             <ul class="menu-col">
-                              <li><a href="browse-jobs.html">Browse Jobs</a></li>
-                              <li><a href="browse-company.html">Browse Companies</a></li>
-                              <li><a href="/resume">Add Resume</a></li>                             
+                              <li><a href="/jobs">Browse Jobs</a></li>
+                              <li><a href="/browse-companies">Browse Companies</a></li>
+                              <li><a href="/resumes/create">Add Resume</a></li>                             
                             </ul>
                           </div>
                         </div>
@@ -90,41 +87,14 @@
                             <li><a href="/jobs/create">Create Job</a></li>
                             <li><a href="create-company.html">Create Company</a></li>
                             <li><a href="manage-company.html">Manage Company</a></li>
-                            <li><a href="manage-candidate.html">Browse Candidate</a></li>
-                            <li><a href="manage-employee.html">Manage Employee</a></li>
-                            <li><a href="/browse-resume">Browse Resume</a></li>
-                            <li><a href="candidate-profile.html">Candidate Profile</a></li>
-                            <li><a href="candidate-detail.html">New Candidate Detail</a></li>
-                            <li><a href="employer-profile.html">Employer Profile</a></li>
-                            <li><a href="manage-resume.html">Manage Resume</a></li>
+                            <li><a href="/resumes">Browse Resume</a></li>
                           </ul>
                         </div>
                       </div>
                     @endif
 
                 @endif
-                   
-                
-                
-    
-                <div class="col-menu col-md-3">
-                  <h6 class="title">Extra Pages <span class="new-offer">New</span></h6>
-                  <div class="content">
-                    <ul class="menu-col">
-                      <li><a href="top-candidate-detail.html">Top Candidate detail</a></li>
-                      <li><a href="job-apply-detail.html">New Apply Job</a></li>
-                      <li><a href="payment-methode.html">Payment Methode</a></li>
-                      <li><a href="new-login-signup.html">New LogIn / SignUp</a></li>
-                      <li><a href="popular-jobs.html">Popular Jobs</a></li>
-                      <li><a href="top-candidate.html">Top candidate</a></li>
-                      <li><a href="top-candidate-2.html">Top candidate 2</a></li>
-                      <li><a href="premium-candidate.html">Premium Candidate</a></li>
-                      <li><a href="premium-candidate-detail.html">Premium Candidate Detail</a></li>
-                      <li><a href="blog-detail.html">Blog detail</a></li>
-                    </ul>
-                  </div>
-                </div><!-- end col-3 -->
-              </div><!-- end row -->
+          
             </li>
           </ul>
         </li>

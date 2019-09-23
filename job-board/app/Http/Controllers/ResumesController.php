@@ -14,7 +14,7 @@ class ResumesController extends Controller
      */
     public function index()
     {
-        $resumes = Resume::orderBy('created_at', 'desc')->paginate(5);
+        $resumes = Resume::orderBy('created_at', 'desc');
         return view('pages.browse-resume')->with('resumes', $resumes);
     }
 
