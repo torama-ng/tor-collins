@@ -11,4 +11,8 @@ class Job extends Model
 
     // Primary Key
     public $primaryKey = 'id';
+
+    public function user() {
+        return $this->belongTo('App\User');
+    }
 }

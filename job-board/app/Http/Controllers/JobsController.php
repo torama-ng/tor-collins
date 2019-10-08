@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Job;
 
 class JobsController extends Controller
@@ -97,19 +98,20 @@ class JobsController extends Controller
         $job->dribbleLink = $request->input('dribbleLink');
         $job->aboutCompany = $request->input('aboutCompany');
         $job->coverImage = $fileNameToStore;
+        $job->user_id = auth()->user()->id;
         $job->save();
 
-        return redirect('/jobs')->with('success', 'Job Added Successfully');
+        return redirect('/')->with('success', 'Job Added Successfully');
     }
 
     public function search(Request $request){
         $searchName = $request->get('searchName');
         $searchLocation = $request->get('searchLocation');
         $jobs = Job::where('jobTitle', 'like', '%'.$searchName.'%')
-                    ->where('state', 'like', '%'.$searchLocation.'%')
+                    ->where('location', 'like', '%'.$searchLocation.'%')
                     ->paginate(5);
 
-        return view('pages.result', ['jobs' => $jobs]);            
+        return view('pages.browse-jobs', ['jobs' => $jobs]);            
     }
     
     /**

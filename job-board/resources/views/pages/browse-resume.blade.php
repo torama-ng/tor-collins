@@ -62,6 +62,8 @@
                             </article>
                         </a>
                     @endforeach
+                    @else
+                        <h2>No Available Resume</h2>
                 @endif
             </div>
         </section>

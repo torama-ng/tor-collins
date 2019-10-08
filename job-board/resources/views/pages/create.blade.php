@@ -290,6 +290,10 @@
                               <input type="email"  name="email" class="form-control" placeholder="Your Email" required="">
                               <input type="email"  name="email" class="form-control" placeholder="Username" required="">
                               <input type="password" name="password" class="form-control"  placeholder="Password" required="">
+                              <select name="user_type" id="user_type" class="form-control @error('user_type') is-invalid @enderror" value="{{ old('user_type') }}" required autocomplete="user_type">
+                                <option value="employer">Employer</option>
+                                <option value="candidate">Candidate</option>
+                            </select>
                               <div class="center">
                               <button type="submit" id="subscribe" class="submit-btn"> Create Account </button>
                               </div>

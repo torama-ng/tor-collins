@@ -14,7 +14,7 @@ class ResumesController extends Controller
      */
     public function index()
     {
-        $resumes = Resume::orderBy('created_at', 'desc');
+        $resumes = Resume::all();
         return view('pages.browse-resume')->with('resumes', $resumes);
     }
 
@@ -113,6 +113,7 @@ class ResumesController extends Controller
         $resume->notesSecond = $request->input('notesSecond');
         $resume->skill = $request->input('skill');
         $resume->percent = $request->input('percent');
+        $resume->user_id = auth()->user()->id;
         $resume->save();
          
        return redirect('/')->with('success', 'Resume Added Successfully');

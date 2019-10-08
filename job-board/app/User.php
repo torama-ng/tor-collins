@@ -49,4 +49,11 @@ class User extends Authenticatable
     public function hasAnyRole($role){
         return null !== $this->roles()->where('name', $role)->first();
     } 
+    public function jobs() {
+        return $this->hasMany('App\Job');
+    }
+
+    public function resume() {
+        return $this->hasMany('App\Resume');
+    }
 }

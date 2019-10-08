@@ -25,9 +25,7 @@ Route::get('/search', 'JobsController@search');
 Route::get('/admin', function(){
     return view('admin.dashboard');
 })->middleware(['auth', 'auth.admin']);
-Route::get('/browse-jobs', function() {
-    return view('pages.browse-jobs');
-});
+Route::get('/my-jobs', 'PagesController@myJobs');
 Auth::routes(['verify' => true]);
 Route::resource('jobs', 'JobsController');
 Route::resource('resumes', 'ResumesController');

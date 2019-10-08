@@ -13,7 +13,41 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        You are logged in!
+                        @if (Auth::check())
+                            @if (Auth::user()->user_type === 'employer')
+                            <h3>Jobs You've Created</h3>
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th>Title</th>
+                                    </tr>
+                                    @foreach($jobs as $job)
+                                    <tr>
+                                        <th>
+                                            {{$job->jobTitle}}
+                                        </th>
+                                    </tr>
+                                    @endforeach
+                                    
+                                </table>
+                            @endif 
+                            
+                            @if (Auth::user()->user_type === 'candidate')
+                                <h3>My Resume</h3>
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th>Resume</th>  
+                                    </tr>
+                                    @foreach($resume as $data)
+                                    <tr>
+                                        <th>
+                                            {{$data->name}}
+                                        </th>
+                                    </tr>
+                                    @endforeach
+                                </table>
+                            @endif
+                        @endif
+                        
                     </div>
                 </div>
             </div>
